@@ -1,0 +1,76 @@
+services:
+  # MLflow Tracking Server - Central hub for experiment tracking
+  mlflow-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio-optimizer:enhanced
+    container_name: mlflow-tracking-server
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MLFLOW_BACKEND_STORE_URI=file:///home/optimizer/app/output/mlruns
+      - MLFLOW_DEFAULT_ARTIFACT_ROOT=/home/optimizer/app/output/artifacts
+    volumes:
+      - portfolio-mlflow-output:/home/optimizer/app/output
+    networks:
+      - portfolio-network
+    ports:
+      - "5001:5000"
+    command: >
+      bash -c "
+      echo '🔬 Starting MLflow Tracking Server...';
+      mkdir -p /home/optimizer/app/output/mlruns /home/optimizer/app/output/artifacts;
+      mlflow server 
+      --backend-store-uri file:///home/optimizer/app/output/mlruns 
+      --default-artifact-root /home/optimizer/app/output/artifacts
+      --host 0.0.0.0 
+      --port 5000
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Enhanced Portfolio Optimizer with Model Registry
+  portfolio-optimizer-enhanced:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio-optimizer:enhanced
+    container_name: portfolio-enhanced
+    environment:
+      - MODEL_TYPE=ridge
+      - TOP_STOCKS=10
+      - RANDOM_SEED=42
+      - LOG_LEVEL=INFO
+      - PYTHONUNBUFFERED=1
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000
+      - MPLCONFIGDIR=/tmp/matplotlib
+    volumes:
+      - ./archive:/home/optimizer/app/archive:ro
+      - portfolio-enhanced-output:/home/optimizer/app/output
+      - portfolio-mlflow-output:/home/optimizer/app/output/shared:ro
+    networks:
+      - portfolio-network
+    depends_on:
+      mlflow-server:
+        condition: service_healthy
+    restart: unless-stopped
+    command: ["python", "enhanced_portfolio_optimizer.py"]
+
+# Networks for service communication
+networks:
+  portfolio-network:
+    driver: bridge
+    name: portfolio-mlflow-net
+
+# Named volumes for persistent data
+volumes:
+  portfolio-enhanced-output:
+    driver: local
+    name: portfolio-enhanced-output
+  portfolio-mlflow-output:
+    driver: local
+    name: portfolio-mlflow-output

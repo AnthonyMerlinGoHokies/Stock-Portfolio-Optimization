@@ -1,0 +1,30 @@
+name: portfolio-optimization
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      model_type: {type: string, default: "ridge"}
+      top_stocks: {type: int, default: 10}
+      random_seed: {type: int, default: 42}
+      data_path: {type: string, default: "archive"}
+    command: "python mlflow_project_optimizer.py --model_type {model_type} --top_stocks {top_stocks} --random_seed {random_seed} --data_path {data_path}"
+  
+  ridge:
+    parameters:
+      top_stocks: {type: int, default: 10}
+      random_seed: {type: int, default: 42}
+    command: "python mlflow_project_optimizer.py --model_type ridge --top_stocks {top_stocks} --random_seed {random_seed}"
+  
+  lasso:
+    parameters:
+      top_stocks: {type: int, default: 10}
+      random_seed: {type: int, default: 42}
+    command: "python mlflow_project_optimizer.py --model_type lasso --top_stocks {top_stocks} --random_seed {random_seed}"
+  
+  elastic:
+    parameters:
+      top_stocks: {type: int, default: 10}
+      random_seed: {type: int, default: 42}
+    command: "python mlflow_project_optimizer.py --model_type elastic --top_stocks {top_stocks} --random_seed {random_seed}"
