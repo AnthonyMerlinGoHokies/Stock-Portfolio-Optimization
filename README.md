@@ -568,9 +568,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📧 Contact
 
 **Project Maintainer**: Anthony Merlin  
-**Email**: [your-email]  
-**LinkedIn**: [your-linkedin]  
-**GitHub**: [your-github]  
+**Email**: anthonym21@vt.edu 
+**LinkedIn**: (https://www.linkedin.com/in/anthony-merlin-304390228/)
+
 
 ---
 
