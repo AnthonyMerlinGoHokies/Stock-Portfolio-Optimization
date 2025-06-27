@@ -2,24 +2,24 @@
 
 Portfolio optimization using Ridge, Lasso, and Elastic Net regression on S&P 500 data. Models outperform market benchmark by 49.73% (Ridge) and 41.77% (Elastic Net) while effectively managing risk through feature selection and regularization.
 
-**🏆 Production-ready containerized MLOps system with comprehensive experiment tracking and model registry management.**
+**Production-ready containerized MLOps system with comprehensive experiment tracking and model registry management.**
 
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://www.docker.com/)
 [![MLflow](https://img.shields.io/badge/MLflow-2.18.0-orange)](https://mlflow.org/)
 [![Python](https://img.shields.io/badge/Python-3.11-green)](https://python.org/)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.6.1-red)](https://scikit-learn.org/)
 
-## 🎯 Project Overview
+## Project Overview
 
 This project demonstrates a complete **Week 1 MLOps journey** from basic Docker containerization to production-ready ML pipeline with MLflow integration. Built over 5 intensive days, it showcases modern machine learning operations practices applied to financial portfolio optimization.
 
-### 📈 Performance Results
+### Performance Results
 - **Ridge Regression**: 49.73% outperformance vs market benchmark
 - **Elastic Net**: 41.77% outperformance with enhanced risk management  
 - **R² Score**: 0.991 (99.1% accuracy) with robust feature engineering
 - **Model Versions**: 18+ tracked experiments with automated promotion
 
-### 🏗️ MLOps Architecture Built This Week
+###  MLOps Architecture Built This Week
 
 ```
 Day 1-2: Docker Foundation    Day 3-4: MLflow Integration    Day 5: Production System
@@ -31,12 +31,12 @@ Day 1-2: Docker Foundation    Day 3-4: MLflow Integration    Day 5: Production S
 ```
 
 ### Key Technical Achievements
-- **🐳 Docker Mastery**: Multi-stage builds, compose orchestration, production containers
-- **🔬 MLflow Integration**: Complete experiment tracking with 18+ model versions
-- **📊 Model Registry**: Automated model promotion and version management
-- **🏭 Production Ready**: Health checks, error handling, scalable microservices
+- **Docker Mastery**: Multi-stage builds, compose orchestration, production containers
+- **MLflow Integration**: Complete experiment tracking with 18+ model versions
+- **Model Registry**: Automated model promotion and version management
+- **Production Ready**: Health checks, error handling, scalable microservices
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Docker Desktop
@@ -64,9 +64,9 @@ docker-compose up portfolio-optimizer-enhanced
 - **Experiments**: Browse 18+ optimization runs
 - **Models**: View registered model versions and performance
 
-## 📊 Week 1 Development Journey
+## Week 1 Development Journey
 
-### **Day 1-2: Docker Foundation** ✅
+### **Day 1-2: Docker Foundation** 
 **What We Built:**
 - Containerized Python ML application
 - Multi-stage Dockerfile with optimal layer caching
@@ -83,7 +83,7 @@ FROM python:3.11-slim AS production
 COPY --from=builder /root/.local /home/optimizer/.local
 ```
 
-### **Day 3-4: MLflow Integration** ✅
+### **Day 3-4: MLflow Integration** 
 **What We Built:**
 - Complete experiment tracking system
 - Model registry with automated versioning
@@ -103,7 +103,7 @@ with mlflow.start_run(run_name=f"portfolio_optimization_{model_type}"):
         promote_to_production(model_name, version)
 ```
 
-### **Day 5: Production Integration** ✅
+### **Day 5: Production Integration** 
 **What We Built:**
 - Dockerized MLflow tracking server
 - Microservices architecture with Docker networking
@@ -124,7 +124,7 @@ services:
       MLFLOW_TRACKING_URI: http://mlflow-server:5000
 ```
 
-## 🔧 Technical Implementation
+## Technical Implementation
 
 ### Machine Learning Models
 | Algorithm | Performance | Use Case |
@@ -158,39 +158,7 @@ Every model run automatically captures:
 - outperformance_pct: alpha generation
 ```
 
-## 📁 Project Structure
-
-```
-stock-portfolio-optimization/
-├── 🐳 Docker Configuration
-│   ├── Dockerfile                    # Multi-stage production build
-│   ├── docker-compose.yml            # Development orchestration
-│   └── .dockerignore                 # Build optimization
-│
-├── 🐍 Python Application  
-│   ├── enhanced_portfolio_optimizer.py   # Main MLOps pipeline
-│   ├── model_registry_manager.py         # Model lifecycle management
-│   ├── requirements.txt                  # Production dependencies
-│   └── conda.yaml                        # Environment specification
-│
-├── 📊 MLflow Configuration
-│   ├── MLproject                         # MLflow project definition
-│   └── mlflow.yaml                       # Server configuration
-│
-├── 📁 Data & Results
-│   ├── archive/                          # S&P 500 datasets (1.89M records)
-│   │   ├── sp500_companies.csv           # Company metadata (502 firms)
-│   │   ├── sp500_stocks.csv              # Historical OHLCV data
-│   │   └── sp500_index.csv               # Benchmark data
-│   └── output/                           # Generated portfolios & MLflow data
-│
-└── 📖 Documentation
-    ├── README.md                         # This documentation
-    ├── PROJECT_STRUCTURE.md              # Detailed architecture
-    └── CHANGELOG.md                      # Development history
-```
-
-## 📈 Performance Metrics & Results
+##  Performance Metrics & Results
 
 ### Model Performance Comparison
 ```
@@ -212,7 +180,7 @@ Lasso          0.978       19.82%             18.44%       +35.20%
 - **Data Processing**: 1.89M records processed efficiently
 - **Memory Usage**: <2GB for complete pipeline
 
-## 🎯 Business Value Delivered
+## Business Value Delivered
 
 ### Investment Performance
 - **Risk-Adjusted Returns**: Consistent outperformance vs S&P 500 benchmark
@@ -225,7 +193,7 @@ Lasso          0.978       19.82%             18.44%       +35.20%
 - **Reliability**: Automated health monitoring and error recovery
 - **Maintainability**: Clean code, comprehensive documentation, test coverage
 
-## 🔄 Development & Production Workflow
+## Development & Production Workflow
 
 ### Local Development
 ```bash
@@ -259,33 +227,33 @@ S&P500    Technical           Ridge/Lasso    MLflow    Version    Automated
 Data      Indicators          Training       Tracking  Control    Deployment
 ```
 
-## 🚀 Week 1 Accomplishments
+## Week 1 Accomplishments
 
-### Monday-Tuesday: Docker Mastery ✅
+### Monday-Tuesday: Docker Mastery 
 - [x] Containerized ML application
 - [x] Multi-stage builds for optimization
 - [x] Docker Compose orchestration
 - [x] Volume management and persistence
 
-### Wednesday-Thursday: MLflow Integration ✅  
+### Wednesday-Thursday: MLflow Integration   
 - [x] Experiment tracking implementation
 - [x] Model registry with versioning
 - [x] Performance comparison dashboard
 - [x] Automated model promotion
 
-### Friday: Production Integration ✅
+### Friday: Production Integration 
 - [x] Dockerized MLflow server
 - [x] Microservices architecture
 - [x] Production health monitoring
 - [x] Complete MLOps pipeline
 
-### Weekend: Professional Polish ✅
+### Weekend: Professional Polish 
 - [x] Comprehensive documentation
 - [x] Code cleanup and commenting
 - [x] Professional project structure
 - [x] Ready for portfolio demonstration
 
-## 🔮 Next Steps & Roadmap
+## Next Steps & Roadmap
 
 ### Immediate Enhancements
 - [ ] **Advanced Models**: XGBoost, Random Forest ensemble
@@ -299,7 +267,7 @@ Data      Indicators          Training       Tracking  Control    Deployment
 - [ ] **Monitoring**: Prometheus/Grafana observability stack
 - [ ] **Security**: Authentication and access controls
 
-## 🤝 Contributing
+## Contributing
 
 This project represents a complete Week 1 learning journey. Contributions welcome!
 
@@ -310,11 +278,11 @@ This project represents a complete Week 1 learning journey. Contributions welcom
 4. Test with Docker: `docker-compose up --build`
 5. Submit pull request with clear description
 
-## 📄 License
+## License
 
 MIT License - Built for the MLOps learning community
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 **Week 1 Learning Journey** made possible by:
 - **Docker Community**: Containerization best practices
@@ -324,7 +292,7 @@ MIT License - Built for the MLOps learning community
 
 ---
 
-**🏆 Week 1 Complete: From Zero to Production MLOps**
+** Week 1 Complete: From Zero to Production MLOps**
 
 *Portfolio optimization system with Docker containerization, MLflow tracking, and production-ready deployment.*
 
@@ -334,14 +302,14 @@ MIT License - Built for the MLOps learning community
 
 ### Key Features
 
-- **🤖 Machine Learning Models**: Ridge regression with hyperparameter optimization
-- **📊 Portfolio Optimization**: Data-driven stock selection and allocation
-- **🔬 Experiment Tracking**: Complete MLflow integration with 18+ model versions
-- **🐳 Containerized Deployment**: Docker-based microservices architecture
-- **📈 Performance Monitoring**: Real-time metrics and model comparison
-- **🏭 Production Ready**: Health checks, error handling, and scalable design
+- **Machine Learning Models**: Ridge regression with hyperparameter optimization
+- **Portfolio Optimization**: Data-driven stock selection and allocation
+- **Experiment Tracking**: Complete MLflow integration with 18+ model versions
+- **Containerized Deployment**: Docker-based microservices architecture
+- **Performance Monitoring**: Real-time metrics and model comparison
+- ** Production Ready**: Health checks, error handling, and scalable design
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -360,7 +328,7 @@ MIT License - Built for the MLOps learning community
                     └─────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Docker Desktop
@@ -389,7 +357,7 @@ docker-compose up portfolio-optimizer-enhanced
 - **Experiments**: View all optimization runs
 - **Models**: Browse registered model versions
 
-## 📊 Results & Performance
+## Results & Performance
 
 ### Model Performance
 - **R² Score**: 0.991 (99.1% accuracy)
@@ -407,7 +375,7 @@ docker-compose up portfolio-optimizer-enhanced
 - **Model Versions**: Full version control and stage management
 - **Automated Promotion**: Production deployment based on performance thresholds
 
-## 🔧 Technical Stack
+## Technical Stack
 
 | Component | Technology | Version | Purpose |
 |-----------|------------|---------|---------|
@@ -419,30 +387,8 @@ docker-compose up portfolio-optimizer-enhanced
 | **Numerical Computing** | NumPy | Latest | Mathematical operations |
 | **Language** | Python | 3.11 | Core development |
 
-## 📁 Project Structure
 
-```
-portfolio-optimization-mlflow/
-├── 📄 enhanced_portfolio_optimizer.py    # Main optimization engine
-├── 📄 model_registry_manager.py          # Model lifecycle management
-├── 📄 model_registry_demo.py             # Registry demonstration
-├── 📄 mlflow_project_optimizer.py        # MLflow project integration
-├── 🐳 Dockerfile                         # Container definition
-├── 🐳 docker-compose.yml                 # Service orchestration
-├── 📋 requirements.txt                   # Python dependencies
-├── 📋 conda.yaml                         # Conda environment
-├── 📄 MLproject                          # MLflow project config
-├── 📁 archive/                           # Data storage
-│   ├── sp500_companies.csv               # Company metadata (502 companies)
-│   ├── sp500_stocks.csv                  # Historical prices (1.89M records)
-│   └── sp500_index.csv                   # Index data (2.5K records)
-├── 📁 output/                            # Generated results
-│   ├── portfolio_ridge.csv               # Optimized portfolios
-│   └── mlruns/                          # MLflow tracking data
-└── 📖 README.md                          # This documentation
-```
-
-## 🧠 Model & Algorithm Details
+## Model & Algorithm Details
 
 ### Feature Engineering
 The system creates sophisticated technical indicators from raw price data:
@@ -483,7 +429,7 @@ All runs automatically capture:
 - **Artifacts**: Trained models, optimization results
 - **Metadata**: Timestamps, user information, environment details
 
-## 🎯 Business Value
+## Business Value
 
 ### Investment Performance
 - **Risk Reduction**: Data-driven stock selection reduces portfolio risk
@@ -496,7 +442,7 @@ All runs automatically capture:
 - **Reliability**: Health monitoring and error handling
 - **Compliance**: Full audit trail of model decisions
 
-## 🔄 Development Workflow
+## Development Workflow
 
 ### Local Development
 ```bash
@@ -522,7 +468,7 @@ curl http://localhost:5001/health
 docker-compose up --scale portfolio-optimizer-enhanced=3
 ```
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
 - [ ] **Advanced Models**: XGBoost, Random Forest ensemble
@@ -538,7 +484,7 @@ docker-compose up --scale portfolio-optimizer-enhanced=3
 - [ ] Performance profiling and optimization
 - [ ] Security hardening and access controls
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Setup
 1. Fork the repository
@@ -554,18 +500,18 @@ docker-compose up --scale portfolio-optimizer-enhanced=3
 - **MLflow**: Consistent experiment naming and tagging
 - **Documentation**: Update README for significant changes
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **MLflow Community**: For excellent experiment tracking tools
 - **Scikit-learn Team**: For robust ML algorithms
 - **Docker Inc**: For containerization technology
 - **S&P Global**: For market data standards
 
-## 📧 Contact
+## Contact
 
 **Project Maintainer**: Anthony Merlin  
 **Email**: anthonym21@vt.edu 
@@ -574,6 +520,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the MLOps community**
+**Built with love for the MLOps community**
 
 *Last updated: June 2025*
