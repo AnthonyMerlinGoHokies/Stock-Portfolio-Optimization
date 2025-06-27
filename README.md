@@ -415,7 +415,7 @@ if r2_score > 0.1:  # Performance threshold
     archive_previous_versions()
 ```
 
-## 🔍 Monitoring & Observability
+##  Monitoring & Observability
 
 ### Health Checks
 - **Container Health**: Automated service monitoring
